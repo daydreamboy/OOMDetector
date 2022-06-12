@@ -97,7 +97,7 @@ Pod::Spec.new do |s|
 
   # s.public_header_files = ['libOOMDetector/libOOMDetector/OOMDetector/common/upload/QQLeakDataUploadCenter.h', 'libOOMDetector/libOOMDetector/OOMDetector/Headers/*.h', 'libOOMDetector/libOOMDetector/OOMDetector/OOMDetector/statistic/OOMStatisticsInfoCenter.h', 'libOOMDetector/libOOMDetector/OOMDetector/common/upload/QQLeakFileUploadCenter.h', 'libOOMDetector/libOOMDetector/libOOMDetector.h']
 
-  s.source_files = "libOOMDetector/libOOMDetector", "libOOMDetector/libOOMDetector/**/*.{h,m,mm}" 
+  s.source_files = "libOOMDetector/libOOMDetector", "libOOMDetector/libOOMDetector/**/*.{h,m,mm,c}" 
   s.public_header_files = ['libOOMDetector/libOOMDetector/OOMDetector/common/upload/QQLeakDataUploadCenter.h', 'libOOMDetector/libOOMDetector/OOMDetector/Headers/*.h', 'libOOMDetector/libOOMDetector/OOMDetector/OOMDetector/statistic/OOMStatisticsInfoCenter.h', 'libOOMDetector/libOOMDetector/OOMDetector/common/upload/QQLeakFileUploadCenter.h', 'libOOMDetector/libOOMDetector/libOOMDetector.h']
   # s.private_header_files = ['**/fishhook.h']
   s.exclude_files = '**/fishhook.h'
@@ -126,7 +126,7 @@ Pod::Spec.new do |s|
   # s.framework  = "SomeFramework"
   # s.frameworks = "SomeFramework", "AnotherFramework"
 
-  # s.library   = "iconv"
+  s.library   = "c++"
   # s.libraries = "iconv", "xml2"
 
 
@@ -138,13 +138,17 @@ Pod::Spec.new do |s|
 
   # s.requires_arc = true
   s.requires_arc = false
-  s.requires_arc = ['libOOMDetector/libOOMDetector/OOMDetector/common/upload/QQLeakDataUploadCenter.mm', 'libOOMDetector/libOOMDetector/OOMDetector/OOMDetector/memoryIndicator/MemoryIndicator.m']
+  s.requires_arc = [
+    'libOOMDetector/libOOMDetector/OOMDetector/common/upload/QQLeakDataUploadCenter.mm', 
+    'libOOMDetector/libOOMDetector/OOMDetector/OOMDetector/memoryIndicator/MemoryIndicator.m',
+    'libOOMDetector/libOOMDetector/OOMDetector/OOMDetector/main/FOOMMonitor.mm',
+  ]
 
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # s.dependency "JSONKit", "~> 1.4"
 
-  s.dependency "fishhook", "0.2"
+  s.dependency "fishhook"
 
   # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   s.documentation_url = 'https://github.com/Tencent/OOMDetector/blob/master/README.md'
